@@ -24,5 +24,5 @@ def joint_states_callback(message):
 if __name__ == "__main__":
     rospy.init_node("ur5_moveit_connect")
     pub = rospy.Publisher("/joint_command", JointState, queue_size=1)
-    rospy.Subscriber("/move_group/fake_controller_joint_states", JointState, joint_states_callback, queue_size=10)
+    rospy.Subscriber("/joint_command_desired", JointState, joint_states_callback, queue_size=10)
     rospy.spin()
